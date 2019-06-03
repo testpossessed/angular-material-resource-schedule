@@ -1,1 +1,5 @@
-<ng-mat-scheduler></ng-mat-scheduler>
+<ng-template #itemTemplate let-item='item'>
+    <span>{{item.task}}</span>
+</ng-template>
+<ng-mat-scheduler [start]='start' [duration]='duration' [viewMode]='viewMode' [data]='data' resourceNameField='name'
+    [template]='itemTemplate' [cellItemMatcher]='cellItemMatcher'></ng-mat-scheduler>

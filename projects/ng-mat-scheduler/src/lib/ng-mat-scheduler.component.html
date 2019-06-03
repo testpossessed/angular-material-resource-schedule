@@ -1,0 +1,18 @@
+<div class='container'>
+    <table>
+        <thead>
+            <tr>
+                <th class='fixed-column'>Resource</th>
+                <th *ngFor='let column of columns'>{{column.formatted}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let item of data'>
+                <td class='fixed-column'>{{getResourceLabel(item)}}</td>
+                <td *ngFor='let column of columns'>
+                    <ng-template *ngFor='let task of cellItemMatcher(column, item)' [ngTemplateOutlet]='template' [ngTemplateOutletContext]='{item: task}'></ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
